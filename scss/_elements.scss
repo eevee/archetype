@@ -1,0 +1,8 @@
+// Generic reasonable defaults for some semantic elements
+
+p {
+    line-height: 1.33;
+}
+p + p {
+    margin-top: 0.67em;
+}

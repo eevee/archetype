@@ -1,0 +1,93 @@
+// Simple grid helpers
+
+@import "css3";
+@import "mixins";
+
+$column-count: 12;
+$column-spacing: 2%;
+
+$column-margin: $column-spacing / 2;
+$column-width: (100% - $column-spacing * ($column-count - 1)) / $column-count;
+
+@mixin generate-column($span) {
+    $width: $span * $column-width + ($span - 1) * $column-spacing;
+    width: $width;
+
+    &:before {
+        left: $column-spacing / $width * -50%;
+    }
+    &:after {
+        right: $column-spacing / $width * -50%;
+    }
+}
+
+.columns {
+    @include float-clear();
+
+    margin: 1em 0;
+
+    // TODO: no way to have two sections stacked; perhaps this should be div instead
+    > div,
+    > section {
+        // xxx what doesn't support this, how can i fix, etc
+        // perhaps move this and the padding onto another rule...?
+        @include box-sizing(border-box);
+
+        position: relative;
+        float: left;
+
+        margin: 0 $column-margin 1em;
+
+        &:before {
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;  // set by particular col widths
+            width: 0;
+            content: "";
+            border-left: 1px solid #ccc;
+        }
+        &:after {
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;  // set by particular col widths
+            width: 0;
+            content: "";
+            border-right: 1px solid #ccc;
+        }
+
+        // Remove the margin from the first and last column, to keep the edges
+        // flush with the parent
+        &:first-child {
+            margin-left: 0;
+
+            &:before {
+                content: none;
+            }
+        }
+        &:last-child {
+            margin-right: 0;
+
+            &:after {
+                content: none;
+            }
+        }
+
+        // Various sizes, based on the entire width being 12 units
+        &.col1 { @include generate-column(1); }
+        &.col2 { @include generate-column(2); }
+        &.col3 { @include generate-column(3); }
+        &.col4 { @include generate-column(4); }
+        &.col5 { @include generate-column(5); }
+        &.col6 { @include generate-column(6); }
+        &.col7 { @include generate-column(7); }
+        &.col8 { @include generate-column(8); }
+        &.col9 { @include generate-column(9); }
+        &.col10 { @include generate-column(10); }
+        &.col11 { @include generate-column(11); }
+        &.col12 { @include generate-column(12); }
+    }
+}

@@ -1,0 +1,12 @@
+// Various helpful mixins
+
+// Prevent floats from leaking out the bottom of a box
+@mixin float-clear() {
+    &:after {
+        content: "float clear";
+        display: block;
+        visibility: hidden;
+        height: 0;
+        clear: both;
+    }
+}

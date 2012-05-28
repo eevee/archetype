@@ -1,0 +1,53 @@
+// Very simple default styling
+
+@import "defs";
+
+body {
+    font-family: "Ubuntu", "DejaVu Sans", sans-serif;
+    color: #202020;
+}
+
+section {
+    margin: $major-margin;
+
+    & + section {
+        margin-top: $major-between;
+    }
+    & > section + section {
+        margin-top: $major-margin;
+    }
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+}
+
+
+// Inline
+
+em, i {
+    font-style: italic;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+code, tt, var, kbd {
+    // TODO document this apparent hack
+    font-family: monospace, sans-serif;
+}
+
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+button {
+    cursor: pointer;
+}
