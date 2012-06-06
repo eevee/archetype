@@ -1,6 +1,9 @@
-// Very simple default styling
+// Very simple default styling slash resetting
 
 @import "defs";
+
+
+////// Structural
 
 body {
     font-family: "Ubuntu", "DejaVu Sans", sans-serif;
@@ -30,7 +33,39 @@ p {
 }
 
 
-// Inline
+////// Forms
+// Kill the focus ring's extra spacing in Gecko
+::-moz-focus-inner {
+    padding: 0;
+    border: none;
+}
+
+// Form elements need the same sizing as everything else
+input, button {
+    font-size: 100%;
+    font: inherit;
+    line-height: normal; // fx, opera compat
+}
+
+// Use pointer for clicky elements
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+button {
+    cursor: pointer;
+
+    // But not if they're disabled
+    &[disabled] {
+        cursor: default;
+    }
+}
+
+
+////// Inline
+
+a {
+    text-decoration: underline;
+}
 
 em, i {
     font-style: italic;
@@ -40,14 +75,33 @@ strong, b {
     font-weight: bold;
 }
 
-code, tt, var, kbd {
-    // TODO document this apparent hack
-    font-family: monospace, sans-serif;
+s {
+    text-decoration: line-through;
 }
 
-input[type='submit'],
-input[type='reset'],
-input[type='button'],
-button {
-    cursor: pointer;
+u {
+    text-decoration: underline;
+}
+
+code, tt, kbd, samp, pre {
+    // TODO document this apparent sans-serif hack
+    font-family: Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Andale Mono", Consolas, "Courier New", monospace, sans-serif;
+}
+
+var {
+    font-family: serif;
+    font-style: italic;
+}
+
+sub {
+    font-size: 90%;
+    vertical-align: sub;
+}
+sup {
+    font-size: 90%;
+    vertical-align: super;
+}
+
+pre {
+    line-height: 1.33;
 }

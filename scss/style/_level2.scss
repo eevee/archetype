@@ -1,0 +1,28 @@
+@import "../lib/css3";
+
+// Nice appearance for inline code blocks
+code {
+    background: #f4f4f4;
+    border: 1px solid #e8e8e8;
+    @include border-radius(0.25em);
+
+    line-height: 1.5;
+    padding: 0 0.25em;
+}
+
+// Keyboard input
+kbd > kbd {
+    padding: 0 0.1em;
+    background: #f4f4f4;
+    border: 1px solid #e8e8e8;
+    box-shadow: 1px 1px 0 #c0c0c0;
+}
+
+// When the kbd element is nested inside a samp element, it represents the input as it was echoed by the system.
+
+// When the kbd element contains a samp element, it represents input based on system output, for example invoking a menu item.
+
+mark {
+    padding: 0 0.25em;
+    background: yellow;
+}

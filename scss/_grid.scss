@@ -1,7 +1,7 @@
 // Simple grid helpers
 
-@import "css3";
-@import "mixins";
+@import "lib/css3";
+@import "lib/mixins";
 
 $column-count: 12;
 $column-spacing: 2%;
@@ -17,7 +17,7 @@ $column-width: (100% - $column-spacing * ($column-count - 1)) / $column-count;
         left: $column-spacing / $width * -50%;
     }
     &:after {
-        right: $column-spacing / $width * -50%;
+        left: 100% + $column-spacing / $width * 50%;
     }
 }
 
@@ -56,7 +56,7 @@ $column-width: (100% - $column-spacing * ($column-count - 1)) / $column-count;
             right: 0;  // set by particular col widths
             width: 0;
             content: "";
-            border-right: 1px solid #ccc;
+            border-left: 1px solid #ccc;
         }
 
         // Remove the margin from the first and last column, to keep the edges

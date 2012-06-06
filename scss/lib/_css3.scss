@@ -1,0 +1,84 @@
+////////////////////////////////////////////////////////////////////////////////
+// CSS3 cross-browser mixins
+
+// XXX Is this standardized at all?  I don't know.  Three browsers do it
+// differently
+@mixin pixel-scaling() {
+    // This goes FIRST, because moz/webkit support it but also have more
+    // specific properties
+    image-rendering: optimizeSpeed;
+
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+@mixin border-radius($def) {
+    -moz-border-radius: $def;
+    -webkit-border-radius: $def;
+    border-radius: $def;
+}
+
+@mixin box-shadow($defs) {
+    -moz-box-shadow: $defs;
+    -webkit-box-shadow: $defs;
+    box-shadow: $defs;
+}
+
+@mixin box-sizing($word) {
+    -moz-box-sizing: $word;
+    -webkit-box-sizing: $word;
+    box-sizing: $word;
+}
+
+@mixin transform($def) {
+    // Same deal here
+    $raw-def: $def;
+    -moz-transform: $raw-def;
+    -webkit-transform: $raw-def;
+    -o-transform: $raw-def;
+    -ms-transform: $raw-def;  // yes!  it works in IE9!
+    transform: $raw-def;
+}
+
+@mixin transition($def) {
+    $raw-def: $def;
+    -moz-transition: $raw-def;
+    -webkit-transition: $raw-def;
+    -o-transition: $raw-def;
+    -ms-transition: $raw-def;  // IE10, but still..!
+    transition: $raw-def;
+}
+@mixin transition-property($def) {
+    $raw-def: $def;
+    -moz-transition-property: $raw-def;
+    -webkit-transition-property: $raw-def;
+    -o-transition-property: $raw-def;
+    -ms-transition-property: $raw-def;  // IE10, but still..!
+    transition-property: $raw-def;
+}
+@mixin transition-duration($def) {
+    $raw-def: $def;
+    -moz-transition-duration: $raw-def;
+    -webkit-transition-duration: $raw-def;
+    -o-transition-duration: $raw-def;
+    -ms-transition-duration: $raw-def;
+    transition-duration: $raw-def;
+}
+
+@mixin animation($def) {
+    $raw-def: $def;
+    -moz-animation: $raw-def;
+    -webkit-animation: $raw-def;
+    -o-animation: $raw-def;
+    -ms-animation: $raw-def;
+    animation: $raw-def;
+}
+
+// Animation keyframes
+// TODO this requires Sass 3.2, not yet released  :(
+//@mixin keyframes($name) {
+//    @-moz-keyframes #{$name} { @content }
+//    @-webkit-keyframes #{$name} { @content }
+//    @keyframes #{$name} { @content }
+//}

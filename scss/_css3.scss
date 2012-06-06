@@ -1,6 +1,0 @@
-// Mixins for implementing CSS3 properties with vendor prefixes
-
-@mixin box-sizing($def) {
-    -moz-box-sizing: $def;
-    box-sizing: $def;
-}
