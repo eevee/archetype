@@ -10,3 +10,25 @@
         clear: both;
     }
 }
+
+// Make a horizontal dl
+@mixin horizontal-dl($dt-width, $margin: 0.5em) {
+    > dt {
+        width: $dt-width;
+        float: left;
+        text-align: right;
+
+        &:after {
+            content: ":";
+        }
+    }
+    > dd {
+        margin-left: $dt-width + $margin
+    }
+
+    > dd + dt {
+        clear: left;
+    }
+
+    @include float-clear()
+}

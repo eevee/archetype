@@ -1,0 +1,20 @@
+@import "mixins/css3";
+
+table {
+    @include box-sizing(border-box);
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    > tbody > tr {
+        > th,
+        > td {
+            padding: 0.25em;
+        }
+    }
+}
+
+table.plain {
+    // Undo everything done above
+
+}

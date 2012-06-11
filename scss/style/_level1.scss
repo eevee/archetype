@@ -13,6 +13,13 @@ body {
 section {
     margin: $major-margin;
 
+    section {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    &:first-child {
+        margin-top: 0;
+    }
     & + section {
         margin-top: $major-between;
     }

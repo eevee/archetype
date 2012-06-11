@@ -1,0 +1,16 @@
+@import "lib/mixins";
+
+ol, ul, menu {
+    &.inline > li {
+        display: inline-block;
+    }
+}
+
+dl.horizontal {
+    @include horizontal-dl(12em, 0.5em);
+    line-height: 1.5;
+
+    dt {
+        color: #666;
+    }
+}
