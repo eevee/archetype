@@ -27,6 +27,14 @@
     background: white;
 
     @include button-color(#f4f4f4);
+
+    &[disabled] {
+        color: #606060;
+        border-color: #606060;
+        background: #909090;
+        box-shadow: none;
+        cursor: not-allowed;
+    }
 }
 
 .btn-set {
@@ -94,15 +102,4 @@ input[type='text'] {
     }
 }
 
-
-
-
-
-// TODO this is a good default but not for the whole lib
-input[type='submit'],
-input[type='button'],
-input[type='reset'],
-button {
-    @extend .btn;
-}
 
