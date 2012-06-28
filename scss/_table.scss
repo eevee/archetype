@@ -1,4 +1,4 @@
-@import "mixins/css3";
+@import "lib/css3";
 
 table {
     @include box-sizing(border-box);
