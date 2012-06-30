@@ -1,0 +1,43 @@
+// Vertical form layout
+dl.horizontal {
+    @include horizontal-dl(12em, 0.5em);
+    margin-top: 1em;
+    line-height: 1.5;
+
+    dt, dd {
+        margin-bottom: 0.5em;
+    }
+
+    dt {
+        color: #444;
+    }
+}
+
+// Stuff in a fieldset gets some default stylin'
+fieldset {
+    // TODO move this to level3
+    dl {
+        @extend dl.horizontal;
+    }
+
+    margin-top: 1em;
+    // Gecko won't respect the legend's margin-left without a padding?
+    padding-left: 1px;
+    border-top: 1px solid #ccc;
+
+    legend {
+        margin-left: 12.5em;
+        padding: 0 0.25em;
+    }
+
+    footer {
+        padding: 1em 0;
+        padding-left: 12.5em;
+        border-top: 1px solid #ccc;
+        background: #eee;
+
+        &:first-child {
+            border-top: none;
+        }
+    }
+}
