@@ -17,10 +17,6 @@
         width: $dt-width;
         float: left;
         text-align: right;
-
-        &:after {
-            content: ":";
-        }
     }
     > dd {
         margin-left: $dt-width + $margin
