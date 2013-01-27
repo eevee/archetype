@@ -1,0 +1,8 @@
+// Draw an outline around text, by producing a four-way text shadow.
+@mixin text-outline($color, $delta: 1px, $fuzz: 0) {
+    text-shadow:
+        $delta 0 $fuzz $color,
+        0 $delta $fuzz $color,
+        -$delta 0 $fuzz $color,
+        0 -$delta $fuzz $color;
+}
