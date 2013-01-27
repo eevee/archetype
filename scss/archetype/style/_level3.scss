@@ -7,3 +7,8 @@ input[type='reset'],
 button {
     @extend .btn;
 }
+
+input[type='submit'],
+button[type='submit'] {
+    @extend .btn.btn-submit;
+}
