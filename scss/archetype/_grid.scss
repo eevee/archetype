@@ -22,7 +22,7 @@ $column-width: (100% - $column-spacing * ($column-count - 1)) / $column-count;
 }
 
 .columns {
-    @include float-clear();
+    @include float-clear;
 
     margin: 1em 0;
 
@@ -35,29 +35,7 @@ $column-width: (100% - $column-spacing * ($column-count - 1)) / $column-count;
 
         position: relative;
         float: left;
-
         margin: 0 $column-margin 1em;
-
-        &:before {
-            display: block;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;  // set by particular col widths
-            width: 0;
-            content: "";
-            border-left: 1px solid #ccc;
-        }
-        &:after {
-            display: block;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;  // set by particular col widths
-            width: 0;
-            content: "";
-            border-left: 1px solid #ccc;
-        }
 
         // Remove the margin from the first and last column, to keep the edges
         // flush with the parent
@@ -89,5 +67,35 @@ $column-width: (100% - $column-spacing * ($column-count - 1)) / $column-count;
         &.col10 { @include generate-column(10); }
         &.col11 { @include generate-column(11); }
         &.col12 { @include generate-column(12); }
+    }
+}
+
+.columns.lined > div,
+.columns.lined > section {
+    &:before {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        // left is set by particular col widths
+        width: 0;
+        content: "";
+        border-left: 1px solid #ccc;
+    }
+    &:after {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        // left is set by particular col widths
+        width: 0;
+        content: "";
+        border-left: 1px solid #ccc;
+    }
+
+    // Remove the extra borders from the first/last elements
+    &:first-child:before,
+    &:last-child:after {
+        content: none;
     }
 }
