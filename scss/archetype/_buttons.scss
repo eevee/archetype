@@ -74,18 +74,36 @@
 
 
 // TODO these are not buttons.
+textarea,
+input[type='password'],
+input[type='search'],
 input[type='text'] {
-    padding: 0.33em;
+    padding: 0.25em;
     border: 1px solid #999;
-    box-shadow: inset 1px 1px 1px 0px rgba(#999, 0.4);
+    box-shadow: inset 1px 1px 1px 0 rgba(#999, 0.4);
     border-radius: 2px;
     background: white;
 
+    @include transition(linear $hover-time);
+    @include transition-property((border-color, box-shadow));
+
     &:focus {
-        border-color: hsl(216, 80%, 50%);
-        box-shadow: inset 1px 1px 1px -1px rgba(#444, 1),
-            0 0 3px 2px hsl(216, 80%, 85%);
+        border-color: hsl(216, 80%, 70%);
+        box-shadow: inset 1px 1px 1px 0 rgba(#999, 0.4),
+            0 0 4px 1px hsl(216, 80%, 85%);
     }
+}
+
+textarea {
+    @include box-sizing(border-box);
+    width: 24em;
+    height: 8em;
+}
+textarea[rows] {
+    height: auto;
+}
+textarea[cols] {
+    width: auto;
 }
 
 .txt-set {
