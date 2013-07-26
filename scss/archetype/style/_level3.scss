@@ -1,6 +1,8 @@
 // LEVEL 3: Use a bunch of archetype stylings *by default*.
 // Fair warning: this might generate a lot of CSS.  Such is life.
 
+@import "style/level2";
+
 input[type='submit'],
 input[type='button'],
 input[type='reset'],
@@ -10,5 +12,5 @@ button {
 
 input[type='submit'],
 button[type='submit'] {
-    @extend .btn.btn-submit;
+    @extend .btn.btn-primary;
 }
