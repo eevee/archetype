@@ -1,3 +1,4 @@
+@import "defs";
 @import "lib/css3";
 
 table.table {
@@ -17,7 +18,7 @@ table.table {
 
     > tbody, > thead, > tfoot {
         tr {
-            border-top: 1px solid #ccc;
+            border-top: 1px solid $border-color;
         }
 
         &:first-child tr:first-child {
@@ -28,19 +29,19 @@ table.table {
 
 table.table-striped {
     > tbody > tr:nth-child(2n+1) {
-        background: #f4f4f4;
+        background: hsla(0, 0%, 90%, 0.3);
     }
     > tfoot > tr {
         background: #eee;
 
         &:first-child {
-            border-top: 1px solid #ccc;
+            border-top: 1px solid $border-color;
         }
     }
 }
 
 table.table-hover {
     > tbody tr:hover {
-        background: hsla(225, 80%, 60%, 0.1);
+        background: hsla(225, 50%, 85%, 0.3);
     }
 }
