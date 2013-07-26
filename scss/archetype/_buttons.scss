@@ -3,22 +3,24 @@
 @import "defs";
 
 @mixin button-color($base) {
-    background: $base;
-    background-image: -moz-linear-gradient(rgba(lighten($base, 10%), 0.9) 0%, rgba(darken($base, 10%), 0.9) 100%);
-    background-image: -moz-linear-gradient(rgba(white, 0.5) 0%, rgba(darken($base, 10%), 0.7) 100%);
-    background-image: -moz-linear-gradient(rgba($base, 0) 0%, rgba(darken($base, 10%), 0.5) 100%);
-    border-color: darken($base, 10%);
-    box-shadow: inset 0 0 2px rgba(white, 0.5),
-        1px 1px 2px 0px rgba(black, 0.1);
+    $button-border-color: scale-color($base, $lightness: -20%);
+    position: relative;
 
-    @include transition(background-color linear $hover-time);
+    background: $base;
+    background-image: linear-gradient(rgba($base, 0.6) 0%, rgba($button-border-color, 0) 100%);
+    border-color: $button-border-color;
+    box-shadow: inset 0 0 2px rgba(white, 0.5),
+        0 1px 2px 0px rgba(black, 0.1);
 
     &:hover {
-        background-color: lighten($base, 3%);
+        background-color: scale-color($base, $lightness: -5%);
     }
 
     &:active {
         box-shadow: inset 1px 1px 2px -1px rgba(black, 0.5);
+        box-shadow: inset 0 0 2px rgba(scale-color($base, $lightness: -30%), 0.5),
+            0 0 2px 0px rgba(black, 0.1);
+        top: 1px;
     }
 }
 
@@ -30,7 +32,7 @@
     border-radius: 2px;
     background: white;
 
-    @include button-color(#f4f4f4);
+    @include button-color(#f0f0f0);
 
     &[disabled] {
         color: #999;
@@ -65,11 +67,11 @@
     box-shadow: 0 0 0 -1em yellow;
 }
 
-.btn.lvl-success { @include button-color(hsl(120, 40%, 90%)); }
-.btn.lvl-info { @include button-color(hsl(216, 50%, 90%)); }
-.btn.lvl-error { @include button-color(hsl(0, 50%, 90%)); }
-.btn.btn-submit { @include button-color(hsl(216, 50%, 90%)); }
-.btn.btn-clear { @include button-color(hsl(30, 50%, 90%)); }
+.btn.success { @include button-color(hsl(120, 40%, 85%)); }
+.btn.info { @include button-color(hsl(216, 50%, 85%)); }
+.btn.error { @include button-color(hsl(0, 50%, 85%)); }
+.btn.btn-primary { @include button-color(hsl(216, 50%, 85%)); }
+.btn.btn-reset { @include button-color(hsl(30, 50%, 85%)); }
 
 
 
