@@ -48,11 +48,10 @@
         box-shadow: none;
         cursor: not-allowed;
     }
-
-    a& {
-        display: inline-block;
-        line-height: normal;
-    }
+}
+a.btn {
+    display: inline-block;
+    line-height: normal;
 }
 
 .btn-set {
