@@ -1,6 +1,6 @@
 @import "lib/css3";
 
-table {
+table.table {
     @include box-sizing(border-box);
     width: 100%;
     border-collapse: collapse;
@@ -11,12 +11,23 @@ table {
         padding: 0.5em;
     }
 
-    > tbody > tr {
+    th {
+        text-align: left;
+    }
+
+    > tbody, > thead, > tfoot {
+        tr {
+            border-top: 1px solid #ccc;
+        }
+
+        &:first-child tr:first-child {
+            border-top: none;
+        }
     }
 }
 
-table.striped {
-    > tbody > tr:nth-child(2n) {
+table.table-striped {
+    > tbody > tr:nth-child(2n+1) {
         background: #f4f4f4;
     }
     > tfoot > tr {
@@ -28,7 +39,8 @@ table.striped {
     }
 }
 
-table.plain {
-    // Undo everything done above
-
+table.table-hover {
+    > tbody tr:hover {
+        background: hsla(225, 80%, 60%, 0.1);
+    }
 }
