@@ -12,6 +12,9 @@
     box-shadow: inset 0 0 2px rgba(white, 0.5),
         0 1px 2px 0px rgba(black, 0.1);
 
+    color: scale-color($base, $lightness: -75%);
+    text-shadow: 1px 1px rgba(white, 0.1);
+
     &:hover {
         background-color: scale-color($base, $lightness: -5%);
     }
@@ -36,7 +39,7 @@
 
     &[disabled] {
         color: #999;
-        border-color: #ccc;
+        border-color: $border-color;
         background: #eee;
         box-shadow: none;
         cursor: not-allowed;
@@ -81,8 +84,8 @@ input[type='password'],
 input[type='search'],
 input[type='text'] {
     padding: 0.25em;
-    border: 1px solid #999;
-    box-shadow: inset 1px 1px 1px 0 rgba(#999, 0.4);
+    border: 1px solid $border-color;
+    box-shadow: inset 1px 1px 1px 0 rgba($border-color, 0.4);
     border-radius: 2px;
     background: white;
 
@@ -90,16 +93,16 @@ input[type='text'] {
     @include transition-property((border-color, box-shadow));
 
     &:focus {
-        border-color: hsl(216, 80%, 70%);
-        box-shadow: inset 1px 1px 1px 0 rgba(#999, 0.4),
-            0 0 4px 1px hsl(216, 80%, 85%);
+        border-color: hsl(216, 70%, 70%);
+        box-shadow: inset 1px 1px 1px 0 rgba($border-color, 0.4),
+            0 0 2px 1px hsl(216, 80%, 85%);
     }
 }
 
 textarea {
     @include box-sizing(border-box);
-    width: 24em;
-    height: 8em;
+    width: 30em;
+    height: 10em;
 }
 textarea[rows] {
     height: auto;
@@ -111,19 +114,31 @@ textarea[cols] {
 .txt-set {
     display: inline-block;
     padding: 0 0.33em;
-    border: 1px solid #808080;
+    border: 1px solid $border-color;
     border-radius: 2px;
     background: #e8e8e8;
 
+    word-spacing: 0;
+    > * {
+        word-spacing: normal;
+    }
+
 
     > input[type='text'] {
-        margin: -1px 0;
+        margin-top: -1px;
+        margin-bottom: -1px;
         border-radius: 0;
     }
 
     > .btn {
         border: none;
         margin: 0;
+    }
+
+    > :first-child {
+        margin-left: -0.33em;
+    }
+    > :last-child {
         margin-right: -0.33em;
     }
 }

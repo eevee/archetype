@@ -1,3 +1,5 @@
+@import "defs";
+
 // Vertical form layout
 dl.horizontal {
     @include horizontal-dl(12em, 0.5em);
@@ -23,7 +25,7 @@ fieldset {
     margin-top: 1em;
     // Gecko won't respect the legend's margin-left without a padding?
     padding-left: 1px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $border-color;
 
     legend {
         margin-left: 12.5em;
@@ -33,7 +35,7 @@ fieldset {
     footer {
         padding: 1em 0;
         padding-left: 12.5em;
-        border-top: 1px solid #ccc;
+        border-top: 1px solid $border-color;
         background: #eee;
 
         &:first-child {
