@@ -7,7 +7,7 @@
     position: relative;
 
     background: $base;
-    background-image: linear-gradient(rgba($base, 0.6) 0%, rgba($button-border-color, 0) 100%);
+    background-image: linear-gradient(rgba($base, 0), rgba($button-border-color, 0.33));
     border-color: $button-border-color;
     box-shadow: inset 0 0 2px rgba(white, 0.5),
         0 1px 2px 0px rgba(black, 0.1);
@@ -79,8 +79,10 @@ a.btn {
 }
 
 .btn.success { @include button-color(hsl(120, 40%, 85%)); }
-.btn.info { @include button-color(hsl(216, 50%, 85%)); }
-.btn.error { @include button-color(hsl(0, 50%, 85%)); }
+.btn.info { @include button-color(hsl(195, 50%, 85%)); }
+.btn.warning { @include button-color(hsl(60, 50%, 85%)); }
+.btn.danger { @include button-color(hsl(0, 50%, 85%)); }
+.btn.error { @include button-color(hsl(15, 50%, 85%)); }
 .btn.btn-primary { @include button-color(hsl(216, 50%, 85%)); }
 .btn.btn-reset { @include button-color(hsl(30, 50%, 85%)); }
 
