@@ -22,10 +22,11 @@ fieldset {
         @extend dl.horizontal;
     }
 
-    margin-top: 1em;
+    margin: 1em 0 0;
     // Gecko won't respect the legend's margin-left without a padding?
     padding-left: 1px;
-    border-top: 1px solid $border-color;
+    border: none;
+    //border-top: 1px solid $border-color;
 
     legend {
         margin-left: 12.5em;
@@ -41,5 +42,24 @@ fieldset {
         &:first-child {
             border-top: none;
         }
+    }
+}
+
+// Checkboxes and labels
+label {
+    cursor: pointer;
+
+    &:hover input {
+        box-shadow: 0 0 2px 2px hsl(216, 80%, 85%);
+    }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    & + .checked-label {
+        color: #999;
+    }
+    &:checked + .checked-label {
+        color: hsl(216, 50%, 40%);
     }
 }
