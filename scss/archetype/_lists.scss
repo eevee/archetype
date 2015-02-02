@@ -4,6 +4,11 @@ ol, ul, menu {
     &.inline > li {
         display: inline-block;
     }
+
+    &.plain {
+        padding: 0;
+        list-style-type: none;
+    }
 }
 
 dl.horizontal {

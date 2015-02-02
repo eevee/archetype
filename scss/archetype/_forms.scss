@@ -63,3 +63,10 @@ input[type="radio"] {
         color: hsl(216, 50%, 40%);
     }
 }
+
+textarea.fill {
+    display: block;
+    margin: 1em 0;
+    box-sizing: border-box;
+    width: 100%;
+}
